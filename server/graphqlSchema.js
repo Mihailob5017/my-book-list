@@ -6,6 +6,9 @@ const {
   GraphQLString,
   GraphQLInt
 } = require('graphql');
+
+const Book = require('./mongodb/Book');
+const Author = require('./mongodb/Author');
 const axios = require('axios').default;
 //
 //
@@ -122,6 +125,7 @@ const RootQuery = new GraphQLObjectType({
     }
   }
 });
+
 
 module.exports = new GraphQLSchema({
   query: RootQuery

@@ -7,7 +7,7 @@ const mongoo = require('mongoose');
 
 app.use(cors());
 mongoo.connect(
-  'mongodb+srv://mixailo146:jsmv4183@rest-wn0js.mongodb.net/test?retryWrites=true&w=majority',
+  'mongodb+srv://mixailo146:jsmv4183@rest-wn0js.mongodb.net/graphql?retryWrites=true&w=majority',
   { useUnifiedTopology: true, useNewUrlParser: true },
   () => console.log('MongoDb Connected')
 );
