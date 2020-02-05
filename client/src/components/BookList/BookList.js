@@ -16,7 +16,7 @@ const BookList = () => {
   if (error) {
     return 'Error!';
   }
-  console.log(data);
+ 
   return (
     <div>
       <ul className="book-list">
