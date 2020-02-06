@@ -1,15 +1,7 @@
-import React, { useState } from 'react';
-import { gql } from 'apollo-boost';
+import React from 'react';
+import { getAuthorsQuery } from '../GraphQL/queries';
 import { useQuery } from '@apollo/react-hooks';
 import AddBookForm from './AddBookForm';
-const getAuthorsQuery = gql`
-  {
-    authors {
-      id
-      name
-    }
-  }
-`;
 
 const AddBook = () => {
   const { error, data, loading } = useQuery(getAuthorsQuery);
@@ -18,7 +10,5 @@ const AddBook = () => {
   if (error) return <p>error</p>;
   return <AddBookForm data={data} />;
 };
-
-
 
 export default AddBook;

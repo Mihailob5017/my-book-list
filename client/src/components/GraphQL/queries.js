@@ -8,11 +8,27 @@ export const addBookQuery = gql`
     }
   }
 `;
+export const getAuthorsQuery = gql`
+  {
+    authors {
+      id
+      name
+    }
+  }
+`;
 export const getBooksQuery = gql`
   {
     books {
       id
       name
+    }
+  }
+`;
+export const addAuthorQuery = gql`
+  mutation AddAuthor($name: String!, $age: Int!) {
+    addAuthor(name: $name, age: $age) {
+      name
+      age
     }
   }
 `;

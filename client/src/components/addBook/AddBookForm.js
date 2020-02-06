@@ -69,7 +69,7 @@ const AddBookForm = props => {
       </div>
       <br />
       <button type="submit" onClick={submitData}>
-        +
+       Add Book
       </button>
     </form>
   );

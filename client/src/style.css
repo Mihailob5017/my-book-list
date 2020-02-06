@@ -1,3 +1,11 @@
 body {
   background-color: lightgray;
 }
+form{
+  margin: 2em 0;
+  border: 2px solid black;
+
+}
+form *{
+  padding: 0.2em;
+}
