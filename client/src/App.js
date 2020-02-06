@@ -3,12 +3,11 @@ import './style.css';
 //  Apollo Setup
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-//
+//  React Router
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 //  Components
-import BookList from './components/BookList/BookList';
-import AddBook from './components/addBook/AddBook';
-import Author from './components/addAuthor/Author';
-//
+import Main from './components/Main/Main';
+import BookComponent from './components/SingleBook/BookComponent';
 //  Apollo Connect
 const Client = new ApolloClient({
   uri: 'http://localhost:5000/graphql'
@@ -18,12 +17,10 @@ const Client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={Client}>
-      <div className="main">
-        <h1>Reading List</h1>
-        <BookList />
-        <AddBook />
-        <Author/>
-      </div>
+      <Router>
+        <Route  exact path="/" component={Main} />
+        <Route path="/book/:id" component={BookComponent} />
+      </Router>
     </ApolloProvider>
   );
 };

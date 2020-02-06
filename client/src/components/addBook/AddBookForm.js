@@ -16,9 +16,7 @@ const AddBookForm = props => {
     AddBook({
       variables: { name, genre, authorId },
       refetchQueries: [{ query: getBooksQuery }]
-    }).then(res => {
-      console.log(res.data);
-    });
+    })
   };
   return (
     <form>
