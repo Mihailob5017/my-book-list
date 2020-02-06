@@ -32,3 +32,16 @@ export const addAuthorQuery = gql`
     }
   }
 `;
+
+export const getBookQuery = gql`
+  query GetBook($id: ID!) {
+    book(id: $id) {
+      name
+      genre
+      author {
+        name
+        age
+      }
+    }
+  }
+`;

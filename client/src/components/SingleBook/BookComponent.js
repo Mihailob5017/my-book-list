@@ -1,11 +1,23 @@
 import React from 'react';
-import {} from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
+import { getBookQuery } from '../GraphQL/queries';
 import { Link } from 'react-router-dom';
 const BookComponent = props => {
-  console.log(props.match.params.id);
+  const id = props.match.params.id;
+  const { data, error, loading } = useQuery(getBookQuery, {
+    variables: { id }
+  });
+
+  if (loading) return 'Loading...';
+  if (error) return 'Error';
   return (
     <div>
-      <h1>Hello From This Component</h1>
+      <div className="book-name">Book Name: {data.book.name}</div>
+      <div className="book-genre">Book Genre: {data.book.name}</div>
+      <div className="book-name">
+        Author: {data.book.author.name + ' age: ' + data.book.author.age}
+      </div>
+      <Link to="/">Back</Link>
     </div>
   );
 };

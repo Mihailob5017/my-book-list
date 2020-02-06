@@ -18,7 +18,7 @@ const App = () => {
   return (
     <ApolloProvider client={Client}>
       <Router>
-        <Route  exact path="/" component={Main} />
+        <Route exact path="/" component={Main} />
         <Route path="/book/:id" component={BookComponent} />
       </Router>
     </ApolloProvider>
