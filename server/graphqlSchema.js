@@ -10,15 +10,7 @@ const {
 
 const Book = require('./mongodb/Book');
 const Author = require('./mongodb/Author');
-//
-//
-//
-//
-//
-//
-//
-//
-//  Getting th Book
+//  Getting the Book
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
@@ -31,20 +23,11 @@ const BookType = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Author.findById(parent.authorId);
-        // return authors.find(author => author.id === parent.authorId);
       }
     }
   })
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 //  Getting the Author
 const AuthorType = new GraphQLObjectType({
   name: 'Author',
@@ -59,19 +42,11 @@ const AuthorType = new GraphQLObjectType({
       },
       resolve(parent, args) {
         return Book.find({ authorId: parent.id });
-        // return books.filter(book => book.authorId === parent.id);
       }
     }
   })
 });
-//
-//
-//
-//
-//
-//
-//
-//
+
 //  Getting the Root Query
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -87,14 +62,12 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Book.findById(args.id);
-        // return books.find(book => book.id === args.id);
       }
     },
     authors: {
       type: new GraphQLList(AuthorType),
       resolve(parent, args) {
         return Author.find();
-        // return authors;
       }
     },
     author: {
@@ -102,18 +75,11 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Author.findById(args.id);
-        // return authors.find(author => author.id === args.id);
       }
     }
   }
 });
-//
-//
-//
-//
-//
-//
-//
+
 //  Mutations Query
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
@@ -148,16 +114,17 @@ const Mutation = new GraphQLObjectType({
 
         return book.save();
       }
+    },
+    deleteBook: {
+      type: BookType,
+      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(parent, args) {
+        return Book.findByIdAndDelete(args.id);
+      }
     }
   }
 });
-//
-//
-//
-//
-//
-//
-//
+
 //  Exports
 module.exports = new GraphQLSchema({
   query: RootQuery,

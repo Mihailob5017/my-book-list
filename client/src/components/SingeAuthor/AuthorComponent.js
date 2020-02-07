@@ -10,7 +10,6 @@ const AuthorComponent = props => {
   if (error) return 'Error';
   if (loading) return 'Loading';
 
-  console.log(data.author.books);
   return (
     <div className="author__component">
       <div className="author__component-name">

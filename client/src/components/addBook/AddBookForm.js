@@ -17,6 +17,9 @@ const AddBookForm = props => {
       variables: { name, genre, authorId },
       refetchQueries: [{ query: getBooksQuery }]
     });
+    setName('');
+    setGenre('');
+    setAuthorId('');
   };
   return (
     <form>

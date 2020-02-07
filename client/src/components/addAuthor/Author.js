@@ -8,7 +8,7 @@ const Author = () => {
   const [age, setAge] = useState(0);
   const [AddAuthor] = useMutation(addAuthorQuery);
 
-  const sumbitData = async e => {
+  const sumbitData = e => {
     e.preventDefault();
     if (name === '' || age <= 10) {
       alert('Invalid Author Data');
@@ -18,6 +18,10 @@ const Author = () => {
       variables: { name, age: parseInt(age) },
       refetchQueries: [{ query: getAuthorsQuery }]
     });
+    setName('');
+    setFirstName('');
+    setLastName('');
+    setAge('');
   };
   return (
     <form>

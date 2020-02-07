@@ -1,6 +1,5 @@
 import React from 'react';
 import BookListItem from './BookLIstItem';
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { getBooksQuery } from '../GraphQL/queries';
 const BookList = () => {
