@@ -6,7 +6,7 @@ const AddBookForm = props => {
   const [name, setName] = useState('');
   const [genre, setGenre] = useState('');
   const [authorId, setAuthorId] = useState('');
-  const [AddBook, { data }] = useMutation(addBookQuery);
+  const [AddBook] = useMutation(addBookQuery);
   const submitData = e => {
     e.preventDefault();
     if (name === '' || genre === '' || authorId === '') {
@@ -16,7 +16,7 @@ const AddBookForm = props => {
     AddBook({
       variables: { name, genre, authorId },
       refetchQueries: [{ query: getBooksQuery }]
-    })
+    });
   };
   return (
     <form>
@@ -67,7 +67,7 @@ const AddBookForm = props => {
       </div>
       <br />
       <button type="submit" onClick={submitData}>
-       Add Book
+        Add Book
       </button>
     </form>
   );

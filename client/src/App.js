@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 //  Components
 import Main from './components/Main/Main';
 import BookComponent from './components/SingleBook/BookComponent';
+import AuthorComponent from './components/SingeAuthor/AuthorComponent';
 //  Apollo Connect
 const Client = new ApolloClient({
   uri: 'http://localhost:5000/graphql'
@@ -20,6 +21,7 @@ const App = () => {
       <Router>
         <Route exact path="/" component={Main} />
         <Route path="/book/:id" component={BookComponent} />
+        <Route path="/author/:id" component={AuthorComponent} />
       </Router>
     </ApolloProvider>
   );

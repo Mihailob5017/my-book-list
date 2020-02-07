@@ -17,7 +17,7 @@ const Author = () => {
     AddAuthor({
       variables: { name, age: parseInt(age) },
       refetchQueries: [{ query: getAuthorsQuery }]
-    })
+    });
   };
   return (
     <form>

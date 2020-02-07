@@ -13,9 +13,10 @@ const BookComponent = props => {
   return (
     <div>
       <div className="book-name">Book Name: {data.book.name}</div>
-      <div className="book-genre">Book Genre: {data.book.name}</div>
+      <div className="book-genre">Book Genre: {data.book.genre}</div>
       <div className="book-name">
-        Author: {data.book.author.name + ' age: ' + data.book.author.age}
+        Author: {data.book.author.name}
+        <Link to={`/author/${data.book.authorId}`}>More Books</Link>
       </div>
       <Link to="/">Back</Link>
     </div>
