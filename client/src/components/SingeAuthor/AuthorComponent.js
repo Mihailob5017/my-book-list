@@ -9,28 +9,52 @@ const AuthorComponent = props => {
   });
   if (error) return 'Error';
   if (loading) return 'Loading';
-
   return (
-    <div className="author__component">
-      <div className="author__component-name">
-        Author Name {data.author.name}
-      </div>
-      <div className="author__component-age">Author Age {data.author.age}</div>
-      <div className="author__component-books">
-        More Books:
-        <ul className="author__component-books-list">
-          {data.author.books.map((book, i) => {
-            return (
-              <li key={i} className="author__component-books-item">
-                Name:{book.name} Genre:{book.genre}
-                <hr />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+    <div className="container-fluid">
+      <div className="jumbotron">
+        <div className="author__component">
+          <div className="display-4">
+            <label className="text-primary">Author's Name:</label>{' '}
+            {data.author.name}
+          </div>
+          <div className="display-4">
+            <label className="text-primary">Author's Age: </label>{' '}
+            {data.author.age}
+          </div>
+          <label className="display-4 text-primary"> More Books:</label>
+          <div className="container">
+            <ul className="list-group mx-5 border rounded border-primary">
+              {data.author.books.map((book, i) => {
+                return (
+                  <div key={i} className="list-group-item bg-light ">
+                    <label className=" mt-2 col-sm-12 col-lg-5">
+                      <label className="text-primary h6">Book Name: </label>{' '}
+                      {book.name}
+                    </label>
+                    <label className="mt-2 col-sm-12 col-lg-5">
+                      <label className="text-primary h6">Book Genre: </label>{' '}
+                      {book.genre}
+                    </label>
+                    <Link
+                      className="btn btn-outline-primary col-sm-12 float-right col-lg-2"
+                      to={`/book/${book.id}`}
+                    >
+                      View Book
+                    </Link>
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
 
-      <Link to="/">Go Back</Link>
+          <Link
+            className="btn col-xl-2 mt-2 col-lg-12 btn-outline-primary  float-right btn-lg"
+            to="/"
+          >
+            Go Back
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

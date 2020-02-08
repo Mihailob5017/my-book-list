@@ -13,12 +13,20 @@ const BookLIstItem = props => {
     });
   };
   return (
-    <li className="list-item">
-      {props.item.name} <Link to={`/book/${props.item.id}`}>View More</Link>
-      <div>
-        <button onClick={deleteBook}>Remove Book</button>
+    <div className="list-item  mx-4 my-2 border-bottom">
+      <label className="mx-2 mt-3 h3 text-secondary">{props.item.name}</label>
+      <div className="float-right m-2">
+        <Link className="btn btn-outline-success " to={`/book/${props.item.id}`}>
+          View More
+        </Link>
+        <button
+          className="btn right btn-outline-danger ml-2"
+          onClick={deleteBook}
+        >
+          Remove Book
+        </button>
       </div>
-    </li>
+    </div>
   );
 };
 

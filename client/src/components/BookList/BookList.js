@@ -11,7 +11,7 @@ const BookList = () => {
 
   return (
     <div>
-      <ul className="book-list">
+      <ul className="list-group">
         {data.books.map((item, i) => (
           <BookListItem key={i} item={item} />
         ))}

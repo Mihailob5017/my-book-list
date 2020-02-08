@@ -24,51 +24,54 @@ const Author = () => {
     setAge('');
   };
   return (
-    <form>
-      <div className="input-div">
-        <label htmlFor="firstname" className="input-label">
-          Author's First Name:
-        </label>
-        <input
-          type="text"
-          name="firstname"
-          autoComplete="off"
-          value={firstName}
-          onChange={e => {
-            setFirstName(e.target.value);
-            setName(`${e.target.value} ${lastName}`);
-          }}
-        />
-      </div>
+    <form className="col-lg-5 border col-md-12 border-primary card  bg-light p-4">
+      <h2 class="card-title font-weight-light text-center  text-primary">
+        Author not on the list? Add him
+      </h2>
+      <div className="card-body ">
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">Name:</span>
+          </div>
+          <input
+            type="text"
+            className="form-control"
+            autoComplete="off"
+            value={firstName}
+            placeholder="First Name"
+            onChange={e => {
+              setFirstName(e.target.value);
+              setName(`${e.target.value} ${lastName}`);
+            }}
+          />
+          <input
+            type="text"
+            className="form-control"
+            autoComplete="off"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={e => {
+              setLastName(e.target.value);
+              setName(`${firstName} ${e.target.value}`);
+            }}
+          />
+        </div>
 
-      <div className="input-div">
-        <label htmlFor="lastname" className="input-label">
-          Author's Last Name:
-        </label>
-        <input
-          type="text"
-          name="lastname"
-          autoComplete="off"
-          value={lastName}
-          onChange={e => {
-            setLastName(e.target.value);
-            setName(`${firstName} ${e.target.value}`);
-          }}
-        />
+        <div className="input-group-prepend my-5">
+          <span className="input-group-text">Age:</span>
+          <input
+            type="number"
+            className="form-control"
+            value={age}
+            onChange={e => setAge(e.target.value)}
+          />
+        </div>
       </div>
-
-      <div className="input-div">
-        <label htmlFor="lastname" className="input-label">
-          Author's Age:
-        </label>
-        <input
-          type="number"
-          name="lastname"
-          value={age}
-          onChange={e => setAge(e.target.value)}
-        />
-      </div>
-      <button type="submit" onClick={sumbitData}>
+      <button
+        type="submit"
+        className="btn btn-block align-bottom btn-outline-primary btn-large"
+        onClick={sumbitData}
+      >
         Add Author
       </button>
     </form>
