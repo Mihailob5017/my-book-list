@@ -53,7 +53,9 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     books: {
       type: new GraphQLList(BookType),
+      args: { genre: { type: GraphQLString } },
       resolve(parent, args) {
+        if (args.genre !== '') return Book.find({ genre: args.genre });
         return Book.find();
       }
     },

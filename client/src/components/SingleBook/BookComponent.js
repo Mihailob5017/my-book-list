@@ -15,6 +15,10 @@ const BookComponent = props => {
     let firstname = 'More on ' + name.split(' ')[0];
     return firstname;
   };
+  const toUppercase = name => {
+    const newName = name.charAt(0).toUpperCase() + name.slice(1);
+    return newName;
+  };
   if (loading) return <LoadingComponent />;
   if (error) return <ErrorComponent error={error} />;
   return (
@@ -24,7 +28,8 @@ const BookComponent = props => {
           <label className="text-primary">Book Name: </label> {data.book.name}
         </div>
         <div className="display-4">
-          <label className="text-primary">Book Genre: </label> {data.book.genre}
+          <label className="text-primary">Book Genre: </label>{' '}
+          {toUppercase(data.book.genre)}
         </div>
         <div className="display-4">
           <label className="text-primary">Author: </label>{' '}

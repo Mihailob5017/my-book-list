@@ -11,7 +11,7 @@ mongoo.connect(
   { useUnifiedTopology: true, useNewUrlParser: true },
   () => console.log('MongoDb Connected')
 );
-app.use('/graphql', expressGraphQL({ schema }));
+app.use('/graphql', expressGraphQL({ graphiql: true, schema }));
 
 app.listen(5000, () => {
   console.log('Hello world!');
