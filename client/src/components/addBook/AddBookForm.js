@@ -23,10 +23,15 @@ const AddBookForm = props => {
   };
   return (
     <form className="col-lg-5 my-sm-4 my-md-4 border col-md-12 card bg-light  border-primary p-4">
+      <h2 class="card-title font-weight-light text-center  text-primary">
+        Add a book you plan to Read
+      </h2>
       <div className="card-body">
-        <div className="row">
-          <div className="input-group-prepend  col-md-6 col-xl-6 col-lg-12">
-            <span className="input-group-text">Name:</span>
+        <div className="row my-3">
+          <div className="input-group col-md-6 col-xl-6 col-lg-12">
+            <div className="input-group-prepend  ">
+              <span className="input-group-text">Name:</span>
+            </div>
             <input
               autoComplete="off"
               type="text"
@@ -36,10 +41,12 @@ const AddBookForm = props => {
               className="form-control"
             />
           </div>
-          <div className="input-group-prepend mt-sm-3 mt-lg-3 col-md-6 col-xl-6 col-lg-12">
-            <label htmlFor="author" className="input-group-text">
-              Author:
-            </label>
+          <div className="input-group  mt-sm-3 mt-xl-0 mt-lg-3 col-md-6 col-xl-6 col-lg-12">
+            <div className="input-group-prepend ">
+              <label htmlFor="author" className="input-group-text">
+                Author:
+              </label>
+            </div>
             <select
               value={authorId}
               onChange={e => setAuthorId(e.target.value)}
@@ -54,18 +61,27 @@ const AddBookForm = props => {
             </select>
           </div>
         </div>
-        <br />
         <div className="row">
           <div className="input-group-prepend col-md-6  col-xl-6 col-lg-12">
             <span className="input-group-text">Genre:</span>
-            <input
-              autoComplete="off"
-              type="text"
-              name="genre"
+            <select
               value={genre}
               onChange={e => setGenre(e.target.value)}
-              className="form-control"
-            />
+              className="custom-select"
+            >
+              <option value="">Select Genre</option>
+              <option value="sci-fi">Sci-Fi</option>
+              <option value="romantic">Romantic</option>
+              <option value="thriller">Thriller</option>
+              <option value="fiction">Fiction</option>
+              <option value="mystery">Mystery</option>
+              <option value="biography">Biography</option>
+              <option value="history">History</option>
+              <option value="adventure">Adventure</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="children">Children</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
       </div>
