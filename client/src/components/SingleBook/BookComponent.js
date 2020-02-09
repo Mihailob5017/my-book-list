@@ -31,14 +31,17 @@ const BookComponent = props => {
           {data.book.author.name}
         </div>
         <div className="row my-md-auto m-sm-5">
-          <div className="col-xl-5 col-lg-2"></div>
+          <div className="col-xl-7 col-lg-2"></div>
           <Link
-            className="btn   col-xl-3 col-lg-4 btn-lg btn-outline-info mx-2"
+            className="btn mt-sm-2  col-xl-2 col-lg-4 btn-lg btn-outline-info mx-2"
             to={`/author/${data.book.authorId}`}
           >
             {getFirstName(data.book.author.name)}
           </Link>
-          <Link className="btn col-xl-3 col-lg-4 btn-lg btn-outline-dark mx-2" to="/">
+          <Link
+            className="btn col-xl-2 mt-sm-2 col-lg-4 btn-lg btn-outline-dark mx-2"
+            to="/"
+          >
             Go Back
           </Link>
         </div>
