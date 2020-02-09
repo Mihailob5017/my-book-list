@@ -2,13 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { getAuthorQuery } from '../GraphQL/queries';
+
+//  Loading And Error Components
+import LoadingComponent from '../Loading/LoadingComponent';
+import ErrorComponent from '../Erorr/ErorrComponent';
 const AuthorComponent = props => {
   const id = props.match.params.id;
   const { error, loading, data } = useQuery(getAuthorQuery, {
     variables: { id }
   });
-  if (error) return 'Error';
-  if (loading) return 'Loading';
+  if (error) return <ErrorComponent error={error} />;
+  if (loading) return <LoadingComponent />;
   return (
     <div className="container-fluid">
       <div className="jumbotron">
