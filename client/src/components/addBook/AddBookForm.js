@@ -23,7 +23,7 @@ const AddBookForm = props => {
   };
   return (
     <form className="col-lg-5 my-sm-4 my-md-4 border col-md-12 card bg-light  border-primary p-4">
-      <h2 class="card-title font-weight-light text-center  text-primary">
+      <h2 className="card-title font-weight-light text-center  text-primary">
         Add a book you plan to Read
       </h2>
       <div className="card-body">
@@ -50,9 +50,11 @@ const AddBookForm = props => {
             <select
               value={authorId}
               onChange={e => setAuthorId(e.target.value)}
-              className="custom-select"
+              className="custom-select text-secondary"
             >
-              <option value="">Select Author</option>
+              <option value="" className="text-secondary">
+                Select Author
+              </option>
               {props.data.authors.map((author, i) => (
                 <option key={i} value={author.id}>
                   {author.name}
@@ -67,9 +69,11 @@ const AddBookForm = props => {
             <select
               value={genre}
               onChange={e => setGenre(e.target.value)}
-              className="custom-select"
+              className="custom-select text-secondary"
             >
-              <option value="">Select Genre</option>
+              <option value="" className="text-secondary">
+                Select Genre
+              </option>
               <option value="sci-fi">Sci-Fi</option>
               <option value="romantic">Romantic</option>
               <option value="thriller">Thriller</option>

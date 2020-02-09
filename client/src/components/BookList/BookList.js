@@ -22,9 +22,9 @@ const BookList = () => {
         <select
           value={state}
           onChange={e => setState(e.target.value)}
-          className="custom-select"
+          className="custom-select text-secondary"
         >
-          <option value="">Select Genre</option>
+          <option value="" className="text-secondary">Select Genre</option>
           <option value="sci-fi">Sci-Fi</option>
           <option value="romantic">Romantic</option>
           <option value="thriller">Thriller</option>

@@ -8,7 +8,7 @@ const MainComponent = () => {
   return (
     <div className="container list-group mt-5">
       <h1 className="list-group-item-success display-4 active text-center text-dark mt-1 mx-4">
-        Book Reading List
+        Bookworm's Backlog
       </h1>
       <BookList />
       <Link className=" my-5 btn btn-lg btn-outline-success" to="/add">

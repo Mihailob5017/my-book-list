@@ -13,6 +13,11 @@ const AuthorComponent = props => {
   });
   if (error) return <ErrorComponent error={error} />;
   if (loading) return <LoadingComponent />;
+  const getDate = age => {
+    const year = new Date().getFullYear();
+    return `${age} (${year - age}-${year})`;
+  };
+  getDate(data.author.age);
   return (
     <div className="container-fluid">
       <div className="jumbotron">
@@ -23,7 +28,7 @@ const AuthorComponent = props => {
           </div>
           <div className="display-4">
             <label className="text-primary">Author's Age: </label>{' '}
-            {data.author.age}
+            {getDate(data.author.age)}
           </div>
           <label className="display-4 text-primary"> More Books:</label>
           <div className="container">

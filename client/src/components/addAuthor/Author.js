@@ -57,7 +57,7 @@ const Author = () => {
           />
         </div>
 
-        <div className="input-group-prepend my-5">
+        <div className="input-group-prepend my-4">
           <span className="input-group-text">Age:</span>
           <input
             type="number"
