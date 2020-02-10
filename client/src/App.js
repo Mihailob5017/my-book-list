@@ -2,7 +2,7 @@ import React from 'react';
 //  Bootstrap
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css'
+import './style.css';
 //  Apollo Setup
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
@@ -24,7 +24,7 @@ const App = () => {
     <ApolloProvider client={Client}>
       <Router>
         <Route exact path="/" component={Main} />
-        <Route path="/add" component={AddNewComponent} /> 
+        <Route path="/add" component={AddNewComponent} />
         <Route path="/book/:id" component={BookComponent} />
         <Route path="/author/:id" component={AuthorComponent} />
       </Router>

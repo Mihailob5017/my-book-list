@@ -11,7 +11,10 @@ const AddNewComponent = () => {
           <AddAuthorComponent />
         </div>
 
-        <Link className="container btn btn-outline-success mt-5 btn-block btn-lg" to="/">
+        <Link
+          className="container btn btn-outline-success mt-5 btn-block btn-lg"
+          to="/"
+        >
           Go Back
         </Link>
       </div>

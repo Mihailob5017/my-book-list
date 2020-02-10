@@ -15,7 +15,9 @@ const AddBookForm = props => {
     }
     AddBook({
       variables: { name, genre, authorId },
-      refetchQueries: [{ query: getBooksQuery }]
+      refetchQueries: [
+        { query: getBooksQuery, variables: { genre: '', authorId: '' } }
+      ]
     });
     setName('');
     setGenre('');
@@ -76,6 +78,7 @@ const AddBookForm = props => {
               </option>
               <option value="sci-fi">Sci-Fi</option>
               <option value="romantic">Romantic</option>
+              <option value="drama">Drama</option>
               <option value="thriller">Thriller</option>
               <option value="fiction">Fiction</option>
               <option value="mystery">Mystery</option>
