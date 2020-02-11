@@ -13,10 +13,15 @@ const AuthorComponent = props => {
   });
   if (error) return <ErrorComponent error={error} />;
   if (loading) return <LoadingComponent />;
-  const getDate = age => {
-    const year = new Date().getFullYear();
-    return `${age} (${year - age}-${year})`;
+  const getDate = () => {
+    const { age, isAlive, birthYear, deathYear } = data.author;
+    return `(${birthYear}-${isAlive ? ' ' : deathYear}) ${age}`;
   };
+  const capitalFirst = name => {
+    let newString = name.charAt(0).toUpperCase() + name.slice(1);
+    return newString;
+  };
+  console.log(data.author);
   getDate(data.author.age);
   return (
     <div className="container-fluid">
@@ -27,9 +32,18 @@ const AuthorComponent = props => {
             {data.author.name}
           </div>
           <div className="display-4">
-            <label className="text-primary">Author's Age: </label>{' '}
-            {getDate(data.author.age)}
+            <label className="text-primary">Author's Age: </label> {getDate()}
           </div>
+          <div className="display-4">
+            <label className="text-primary">Author Genre: </label>{' '}
+            {capitalFirst(data.author.authorGenre)}
+          </div>
+          {data.author.favorite && (
+            <div className="border border-primary rounded  col-2 h2 justify-content-between font-weight-light d-flex">
+              <label className="">Favorite</label>
+              <i className="mt-1 fas fa-check-square"></i>
+            </div>
+          )}
           <label className="display-4 text-primary"> More Books:</label>
           <div className="container">
             <ul className="list-group mx-5 border rounded border-primary">

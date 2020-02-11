@@ -15,7 +15,7 @@ const BookList = props => {
   });
   if (loading) return <LoadingComponent />;
   if (error) return <ErrorComponent error={error} />;
-  console.log(props.authors);
+
   return (
     <div>
       <div className="row">

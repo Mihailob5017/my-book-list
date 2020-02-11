@@ -21,6 +21,7 @@ const BookComponent = props => {
   };
   if (loading) return <LoadingComponent />;
   if (error) return <ErrorComponent error={error} />;
+  console.log(data);
   return (
     <div className="container-fluid">
       <div className="jumbotron">
@@ -34,6 +35,15 @@ const BookComponent = props => {
         <div className="display-4">
           <label className="text-primary">Author: </label>{' '}
           {data.book.author.name}
+        </div>
+        <div className="display-4">
+          <label className="text-primary">Rating: </label> {data.book.rating}/10
+        </div>
+        <div className="display-4 mb-5">
+          <label className="text-primary">About: </label>
+          <label className="h1 mx-4 px-4 font-weight-light border-bottom">
+            {data.book.about}
+          </label>
         </div>
         <div className="row my-md-auto m-sm-5">
           <div className="col-xl-7 col-lg-2"></div>

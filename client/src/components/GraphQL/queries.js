@@ -27,6 +27,12 @@ export const getAuthorsQuery = gql`
     authors {
       id
       name
+      age
+      authorGenre
+      favorite
+      isAlive
+      deathYear
+      birthYear
     }
   }
 `;
@@ -71,6 +77,8 @@ export const getBookQuery = gql`
     book(id: $id) {
       name
       genre
+      rating
+      about
       authorId
       author {
         name
@@ -84,6 +92,11 @@ export const getAuthorQuery = gql`
     author(id: $id) {
       name
       age
+      authorGenre
+      favorite
+      isAlive
+      deathYear
+      birthYear
       books {
         id
         name
