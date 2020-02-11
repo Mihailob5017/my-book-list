@@ -33,7 +33,7 @@ const Author = () => {
     setFirstName('');
     setLastName('');
     setBirthYear(0);
-    setDeahYear(birthYear);
+    setDeahYear(0);
     setAlive(true);
     setFavorite(false);
     setGenre('');

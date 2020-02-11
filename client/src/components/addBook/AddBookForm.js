@@ -16,7 +16,7 @@ const AddBookForm = props => {
       return;
     }
     AddBook({
-      variables: { name, genre, authorId, rating, about },
+      variables: { name, genre, authorId, rating: rating || '', about },
       refetchQueries: [
         { query: getBooksQuery, variables: { genre: '', authorId: '' } }
       ]
@@ -99,6 +99,7 @@ const AddBookForm = props => {
               <span className="input-group-text">Rating:</span>
             </div>
             <input
+              placeholder="Optional"
               value={rating}
               onChange={e => setRating(e.target.value)}
               type="number"

@@ -37,12 +37,15 @@ const BookComponent = props => {
           {data.book.author.name}
         </div>
         <div className="display-4">
-          <label className="text-primary">Rating: </label> {data.book.rating}/10
+          <label className="text-primary">Rating: </label>{' '}
+          {data.book.rating === null ? '(Not Rated)' : data.book.rating + '/10'}
         </div>
         <div className="display-4 mb-5">
           <label className="text-primary">About: </label>
           <label className="h1 mx-4 px-4 font-weight-light border-bottom">
-            {data.book.about}
+            {data.book.about.length === 0
+              ? '(No Decription Given)'
+              : data.book.about}
           </label>
         </div>
         <div className="row my-md-auto m-sm-5">
