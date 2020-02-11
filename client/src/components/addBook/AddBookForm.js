@@ -6,6 +6,8 @@ const AddBookForm = props => {
   const [name, setName] = useState('');
   const [genre, setGenre] = useState('');
   const [authorId, setAuthorId] = useState('');
+  const [rating, setRating] = useState(0);
+  const [about, setAbout] = useState('');
   const [AddBook] = useMutation(addBookQuery);
   const submitData = e => {
     e.preventDefault();
@@ -14,7 +16,7 @@ const AddBookForm = props => {
       return;
     }
     AddBook({
-      variables: { name, genre, authorId },
+      variables: { name, genre, authorId, rating, about },
       refetchQueries: [
         { query: getBooksQuery, variables: { genre: '', authorId: '' } }
       ]
@@ -22,6 +24,8 @@ const AddBookForm = props => {
     setName('');
     setGenre('');
     setAuthorId('');
+    setRating(0);
+    setAbout('');
   };
   return (
     <form className="col-lg-5 my-sm-4 my-md-4 border col-md-12 card bg-light  border-primary p-4">
@@ -89,6 +93,34 @@ const AddBookForm = props => {
               <option value="children">Children</option>
               <option value="other">Other</option>
             </select>
+          </div>
+          <div className="input-group col-md-6  col-xl-6 col-lg-12">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Rating:</span>
+            </div>
+            <input
+              value={rating}
+              onChange={e => setRating(e.target.value)}
+              type="number"
+              min="0"
+              max="10"
+              className="form-control"
+              placeholder="(Optional)"
+            />
+          </div>
+        </div>
+        <div className="row my-3">
+          <div className="input-group col-12">
+            <div className="input-group-prepend">
+              <span className="input-group-text">About:</span>
+            </div>
+            <textarea
+              value={about}
+              onChange={e => setAbout(e.target.value)}
+              className="form-control"
+              placeholder="(Optional)"
+              maxLength="256"
+            ></textarea>
           </div>
         </div>
       </div>

@@ -1,10 +1,24 @@
 import { gql } from 'apollo-boost';
 export const addBookQuery = gql`
-  mutation AddBook($name: String!, $genre: String!, $authorId: ID!) {
-    addBook(name: $name, genre: $genre, authorId: $authorId) {
+  mutation AddBook(
+    $name: String!
+    $genre: String!
+    $authorId: ID!
+    $rating: String
+    $about: String
+  ) {
+    addBook(
+      name: $name
+      genre: $genre
+      authorId: $authorId
+      rating: $rating
+      about: $about
+    ) {
       name
       id
       genre
+      rating
+      about
     }
   }
 `;
@@ -25,10 +39,29 @@ export const getBooksQuery = gql`
   }
 `;
 export const addAuthorQuery = gql`
-  mutation AddAuthor($name: String!, $age: Int!) {
-    addAuthor(name: $name, age: $age) {
+  mutation AddAuthor(
+    $name: String!
+    $birthYear: ID!
+    $isAlive: Boolean
+    $favorite: Boolean
+    $authorGenre: String
+    $deathYear: ID
+  ) {
+    addAuthor(
+      name: $name
+      birthYear: $birthYear
+      isAlive: $isAlive
+      favorite: $favorite
+      authorGenre: $authorGenre
+      deathYear: $deathYear
+    ) {
       name
       age
+      authorGenre
+      favorite
+      isAlive
+      deathYear
+      birthYear
     }
   }
 `;

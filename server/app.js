@@ -4,15 +4,16 @@ const expressGraphQL = require('express-graphql');
 const app = express();
 const schema = require('./graphqlSchema');
 const mongoo = require('mongoose');
+require('dotenv/config');
 
+const PORT = process.env.PORT || 5000;
+const DB = process.env.DB_KEY;
 app.use(cors());
-mongoo.connect(
-  'mongodb+srv://mixailo146:jsmv4183@rest-wn0js.mongodb.net/graphql?retryWrites=true&w=majority',
-  { useUnifiedTopology: true, useNewUrlParser: true },
-  () => console.log('MongoDb Connected')
+mongoo.connect(DB, { useUnifiedTopology: true, useNewUrlParser: true }, () =>
+  console.log('MongoDb Connected')
 );
 app.use('/graphql', expressGraphQL({ graphiql: true, schema }));
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log('Hello world!');
 });

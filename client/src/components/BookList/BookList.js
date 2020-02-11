@@ -62,15 +62,13 @@ const BookList = props => {
         </div>
       </div>
       <ul className="list-group">
-        {
-          (data.books.length == 0 ? (
-            <div className="display-4 text-center ">No Books Currently Saved</div>
-          ) : (
-            data.books.map((item, i) => (
-              <BookListItem key={i} item={item} genre={genre} author={author} />
-            ))
+        {data.books.length === 0 ? (
+          <div className="display-4 text-center ">No Books Currently Saved</div>
+        ) : (
+          data.books.map((item, i) => (
+            <BookListItem key={i} item={item} genre={genre} author={author} />
           ))
-        }
+        )}
       </ul>
     </div>
   );
