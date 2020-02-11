@@ -21,7 +21,6 @@ const BookComponent = props => {
   };
   if (loading) return <LoadingComponent />;
   if (error) return <ErrorComponent error={error} />;
-  console.log(data);
   return (
     <div className="container-fluid">
       <div className="jumbotron">
